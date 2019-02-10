@@ -1,0 +1,57 @@
+{
+  "name": "@artsy/hokusai-www",
+  "private": true,
+  "description": "Hokusai is a Docker + Kubernetes CLI for application developers.",
+  "version": "0.1.0",
+  "scripts": {
+    "build": "gatsby build",
+    "clean": "rm -rf .cache && yarn start",
+    "develop": "nodemon --exec \"gatsby develop\"",
+    "debug": "nodemon --exec \"node --inspect-brk --no-lazy node_modules/.bin/gatsby develop\" ",
+    "prettier-write": "prettier --write \"src/**/*.js\"",
+    "serve": "gatsby serve",
+    "start": "yarn develop",
+    "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\"",
+    "type-check": "tsc --pretty --noEmit"
+  },
+  "devDependencies": {
+    "prettier": "^1.16.4"
+  },
+  "dependencies": {
+    "gatsby": "^2.0.118",
+    "gatsby-image": "^2.0.29",
+    "gatsby-plugin-manifest": "^2.0.17",
+    "gatsby-plugin-offline": "^2.0.23",
+    "gatsby-plugin-react-helmet": "^3.0.6",
+    "gatsby-plugin-typescript": "^2.0.7",
+    "gatsby-source-filesystem": "^2.0.20",
+    "gatsby-transformer-remark": "^2.2.4",
+    "nodemon": "^1.18.10",
+    "prop-types": "^15.6.2",
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0",
+    "react-helmet": "^5.2.0"
+  },
+  "keywords": [
+    "gatsby"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+  },
+  "bugs": {
+    "url": "https://github.com/gatsbyjs/gatsby/issues"
+  },
+  "authors": [
+    "Christopher Pappas <damassi.pappas@artsy.net>",
+    "Artsy Inc"
+  ],
+  "prettier": {
+    "bracketSpacing": true,
+    "proseWrap": "always",
+    "semi": false,
+    "singleQuote": false,
+    "trailingComma": "es5"
+  }
+}
