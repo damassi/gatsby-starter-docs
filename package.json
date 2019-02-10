@@ -8,21 +8,59 @@
     "clean": "rm -rf .cache && yarn start",
     "develop": "nodemon --exec \"gatsby develop\"",
     "debug": "nodemon --exec \"node --inspect-brk --no-lazy node_modules/.bin/gatsby develop\" ",
+    "lint": "eslint . --ext ts,tsx,js,jsx",
     "prettier-write": "prettier --write \"src/**/*.js\"",
     "serve": "gatsby serve",
     "start": "yarn develop",
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\"",
     "type-check": "tsc --pretty --noEmit"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "yarn run type-check"
+    }
+  },
+  "lint-staged": {
+    "*.@(ts|tsx)": [
+      "yarn lint",
+      "yarn prettier-write",
+      "git add"
+    ]
+  },
+  "nodemonConfig": {
+    "ignore": [
+      ".cache/*",
+      "public/*",
+      "src/*",
+      "static/*"
+    ],
+    "delay": "1500"
+  },
+  "prettier": {
+    "bracketSpacing": true,
+    "proseWrap": "always",
+    "semi": false,
+    "singleQuote": false,
+    "trailingComma": "es5"
+  },
   "devDependencies": {
-    "prettier": "^1.16.4"
+    "@typescript-eslint/eslint-plugin": "^1.3.0",
+    "eslint": "^5.13.0",
+    "eslint-config-prettier": "^4.0.0",
+    "husky": "^1.3.1",
+    "lint-staged": "^8.1.3",
+    "prettier": "^1.16.4",
+    "typescript": "^3.3.3"
   },
   "dependencies": {
+    "babel-plugin-styled-components": "^1.10.0",
     "gatsby": "^2.0.118",
     "gatsby-image": "^2.0.29",
     "gatsby-plugin-manifest": "^2.0.17",
     "gatsby-plugin-offline": "^2.0.23",
     "gatsby-plugin-react-helmet": "^3.0.6",
+    "gatsby-plugin-styled-components": "^3.0.5",
     "gatsby-plugin-typescript": "^2.0.7",
     "gatsby-source-filesystem": "^2.0.20",
     "gatsby-transformer-remark": "^2.2.4",
@@ -30,7 +68,8 @@
     "prop-types": "^15.6.2",
     "react": "^16.8.0",
     "react-dom": "^16.8.0",
-    "react-helmet": "^5.2.0"
+    "react-helmet": "^5.2.0",
+    "styled-components": "^4.1.3"
   },
   "keywords": [
     "gatsby"
@@ -46,12 +85,5 @@
   "authors": [
     "Christopher Pappas <damassi.pappas@artsy.net>",
     "Artsy Inc"
-  ],
-  "prettier": {
-    "bracketSpacing": true,
-    "proseWrap": "always",
-    "semi": false,
-    "singleQuote": false,
-    "trailingComma": "es5"
-  }
+  ]
 }

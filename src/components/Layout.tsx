@@ -13,7 +13,7 @@ export default function Layout({ children }) {
           }
         }
       `}
-      render={data => (
+      render={_data => (
         <>
           <div>{children}</div>
         </>

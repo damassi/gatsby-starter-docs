@@ -11,10 +11,11 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `markdown-docs`,
-        path: `${__dirname}/../docs`,
+        path: `${__dirname}/docs`,
       },
     },
     "gatsby-plugin-offline",
+    "gatsby-plugin-styled-components",
     "gatsby-transformer-remark",
     "gatsby-plugin-typescript",
   ],

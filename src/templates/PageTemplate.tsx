@@ -5,9 +5,12 @@ export default function PageTemplate({ data }) {
   const {
     markdownRemark: {
       frontmatter: { title },
+      // tableOfContents,
       html,
     },
   } = data
+
+  // console.log(tableOfContents)
 
   return (
     <div>
@@ -19,10 +22,10 @@ export default function PageTemplate({ data }) {
 
 export const pageQuery = graphql`
   query($id: String!) {
-    markdownRemark(frontmatter: { slug: { eq: $id } }) {
+    markdownRemark(id: { eq: $id }) {
       html
+      tableOfContents
       frontmatter {
-        slug
         title
       }
     }

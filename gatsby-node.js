@@ -1,6 +1,5 @@
 /**
  * Implement Gatsby's Node APIs in this file.
- *
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 
@@ -16,7 +15,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     createNodeField({
       name: "slug",
       node,
-      value: `/docs${value}`,
+      value,
     })
   }
 }
@@ -44,8 +43,6 @@ exports.createPages = ({ graphql, actions }) => {
           console.error(result.errors)
           reject(result.errors)
         }
-
-        console.log(result.data)
 
         result.data.allMarkdownRemark.edges.forEach(({ node }) => {
           actions.createPage({
