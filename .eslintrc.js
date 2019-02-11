@@ -50,5 +50,6 @@ module.exports = {
     ],
     "react/display-name": 0,
     "react/prop-types": 0,
+    "react/no-unescaped-entities": 0,
   },
 }

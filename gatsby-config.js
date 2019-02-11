@@ -15,8 +15,18 @@ module.exports = {
       },
     },
     "gatsby-plugin-offline",
-    "gatsby-plugin-styled-components",
-    "gatsby-transformer-remark",
+    {
+      resolve: "gatsby-plugin-styled-components",
+      options: {
+        displayName: true,
+      },
+    },
+    {
+      resolve: "gatsby-transformer-remark",
+      options: {
+        plugins: ["gatsby-remark-prismjs"],
+      },
+    },
     "gatsby-plugin-typescript",
   ],
 }

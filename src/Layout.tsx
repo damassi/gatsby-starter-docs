@@ -2,6 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import { StaticQuery, graphql } from "gatsby"
 import { Sidebar } from "./Sidebar"
+import { Box, Flex } from "rebass"
 
 export default function Layout({ children }) {
   return (
@@ -17,9 +18,9 @@ export default function Layout({ children }) {
       `}
       render={_data => {
         return (
-          <Container>
-            <Sidebar />
-            <div>{children}</div>
+          <Container p={5}>
+            <Sidebar width="20%" pt={5} />
+            <Content>{children}</Content>
           </Container>
         )
       }}
@@ -27,8 +28,13 @@ export default function Layout({ children }) {
   )
 }
 
-const Container = styled.div`
-  max-width: 1200px;
+const Container = styled(Flex)`
+  max-width: 1192px;
   margin: 0 auto;
-  border: 1px solid black;
+  padding-top: 0;
+`
+
+const Content = styled(Box).attrs({ px: 3 })`
+  width: 75%;
+  padding-top: 50px;
 `
