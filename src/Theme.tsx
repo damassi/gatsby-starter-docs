@@ -75,9 +75,20 @@ const GlobalStyle = createGlobalStyle`
   }
 
   h1, h2, h3, h4 {
-    font-family: 'Rubik', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 300;
     color: ${color("black80")};
-    color: ${color("black100")};
+  }
+
+  h1 {
+    color: ${color("blue60")};
+  }
+
+  h3 {
+    font-weight: 400;
+    font-size: ${fontSize("m")};
+    margin-top: ${space(3)};
+    color: ${color("black80")}
   }
 
   ul {
@@ -90,13 +101,16 @@ const GlobalStyle = createGlobalStyle`
   }
 
   a {
-    text-decoration: none;
+    /* text-decoration: none; */
     color: ${color("black60")};
 
     &:hover {
-      text-decoration: underline;
       color: ${color("black100")};
     }
+  }
+
+  .anchor {
+    padding-top: 2px;
   }
 `
 
@@ -114,10 +128,6 @@ export const Theme = ({ children }) => {
             rel="stylesheet"
           />
           <link
-            href="https://fonts.googleapis.com/css?family=Noto+Serif" // 'Noto Serif', serif;
-            rel="stylesheet"
-          />
-          <link
             href="https://fonts.googleapis.com/css?family=Open+Sans" // 'Open Sans', sans-serif;
             rel="stylesheet"
           />
@@ -127,6 +137,10 @@ export const Theme = ({ children }) => {
           />
           <link
             href="https://fonts.googleapis.com/css?family=IBM+Plex+Serif" // 'IBM Plex Serif', serif;
+            rel="stylesheet"
+          />
+          <link
+            href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700" // 'Source Sans Pro', sans-serif;
             rel="stylesheet"
           />
         </Helmet>

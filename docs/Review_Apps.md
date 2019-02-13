@@ -10,6 +10,8 @@ need to be tested in a staging-like environment.
 
 In order to start a review app you will need to follow these steps:
 
+### Steps
+
 1. Create a new review app
 
    ```shell

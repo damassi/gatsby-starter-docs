@@ -19,8 +19,10 @@ export default function Layout({ children }) {
       render={_data => {
         return (
           <Container p={5}>
-            <Sidebar width="20%" pt={5} />
-            <Content>{children}</Content>
+            <Sidebar width="25%" pt={5} />
+            <Content width="75%" pl={5}>
+              {children}
+            </Content>
           </Container>
         )
       }}
@@ -34,7 +36,6 @@ const Container = styled(Flex)`
   padding-top: 0;
 `
 
-const Content = styled(Box).attrs({ px: 3 })`
-  width: 75%;
+const Content = styled(Box)`
   padding-top: 50px;
 `
