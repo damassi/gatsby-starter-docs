@@ -2,7 +2,7 @@ import React from "react"
 import { createGlobalStyle, ThemeProvider } from "styled-components"
 import { Box } from "rebass"
 import { Helmet } from "react-helmet"
-import { SyntaxTheme } from "./SyntaxTheme"
+import { SyntaxTheme } from "./components/SyntaxTheme"
 
 export const themeProps = {
   breakpoints: [1192, 1024, 900, 768, 767],

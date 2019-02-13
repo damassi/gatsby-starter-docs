@@ -14,7 +14,30 @@ module.exports = {
         path: `${__dirname}/docs`,
       },
     },
-    "gatsby-plugin-offline",
+    {
+      resolve: "gatsby-plugin-lunr",
+      options: {
+        languages: [
+          {
+            name: "en",
+            filterNodes: node =>
+              !node.frontmatter || node.frontmatter.draft !== true,
+          },
+        ],
+        fields: [
+          { name: "title", store: true, attributes: { boost: 20 } },
+          { name: "content", store: true },
+          { name: "slug", store: true },
+        ],
+        resolvers: {
+          MarkdownRemark: {
+            title: node => node.frontmatter.title,
+            content: node => node.rawMarkdownBody,
+            slug: node => node.fields.slug,
+          },
+        },
+      },
+    },
     {
       resolve: "gatsby-plugin-styled-components",
       options: {
@@ -25,18 +48,24 @@ module.exports = {
       resolve: "gatsby-transformer-remark",
       options: {
         plugins: [
-          "gatsby-remark-prismjs",
-          "gatsby-remark-autolink-headers",
+          {
+            resolve: `gatsby-remark-autolink-headers`,
+            options: {
+              className: "autolinkHeader",
+            },
+          },
           {
             resolve: "gatsby-remark-images",
             options: {
               linkImagesToOriginal: false,
             },
           },
+          "gatsby-remark-prismjs",
         ],
       },
     },
     "gatsby-plugin-catch-links",
+    "gatsby-plugin-offline",
     "gatsby-plugin-typescript",
   ],
 }
